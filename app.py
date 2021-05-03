@@ -48,7 +48,7 @@ def predict():
 
     prd = model.predict(a)
 
-    newprd = ''.join(map(str, prd))
+    newprd = str(''.join(map(str, prd)))[1:-1]
 
     return flask.render_template('index.html', prediction_text=f'Likelihood of a power outage: {newprd}')    
     
