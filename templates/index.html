@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Deployment Tutorial 1</title>
+  <title>Power Outage Predictor and Analysis System</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -12,20 +12,23 @@
 </head>
 
 <body style="background: #ffffff;">
- <div class="login">
-	<h1>Sales Forecasting</h1>
+ <div>
+	<h1>Power Outage Predictor and Analysis System</h1>
+     {{ prediction_text }}
+  </div>
+  <div id="container" style="width:840px; height: 400px;">
+  	<h4>Frequency of outages affected by wind</h4>
+   {% include 'outages_wind.html' %}
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="rate" placeholder="rate" required="required" />
-        <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
-		<input type="text" name="sales in second month" placeholder="sales in second month" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict sales in third month</button>
-    </form>
+ </div>
+ <div id="container" style="width:840px; height: 400px; padding:20px">
+  	<h4>Frequency of outages affected by rain</h4>
+   {% include 'outages_precip.html' %}
 
-   <br>
-   <br>
-   {{ prediction_text }}
+ </div>
+ <div id="container" style="width:840px; height: 400px; padding:20px">
+  	<h4>24 hour time series of outages</h4>
+   {% include 'timeseries_outages.html' %}
 
  </div>
 </body> 
