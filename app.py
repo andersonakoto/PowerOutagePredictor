@@ -19,19 +19,12 @@ global graph
 graph = tf.compat.v1.get_default_graph()
 model = load_model('final_model')
 
-url = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b423c011&query=-1.288077,36.819927"
+url = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b423c011&query=fetch:ip"
 # homepage
-@app.route("/templates", methods=["GET"])
+@app.route("/home", methods=["GET"])
 def homepage():
-    return flask.render_template("index.html")
-
-
-#trained keras model
-model = load_model('final_model.h5')
-
-
-@app.route("/predict", methods=["GET"])
-def predict():
+# @app.route("/predict", methods=["GET"])
+# def predict():
     # temp = flask.request.form['lat']
     # press = flask.request.form['lng'] 
     
@@ -50,10 +43,8 @@ def predict():
 
     newprd = str(''.join(map(str, prd)))[1:-1]
 
-    return flask.render_template('index.html', prediction_text=f'Likelihood of a power outage: {newprd}')    
-    
-    
-    
+    return flask.render_template('index.html', prediction_text=f'Likelihood of a power outage at your location(Based on IP): {newprd}')    
+
 # start the flask app, allow remote connections 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
