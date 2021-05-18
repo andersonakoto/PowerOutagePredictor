@@ -21,7 +21,6 @@ global graph
 graph = tf.compat.v1.get_default_graph()
 model = load_model('final_model')
 
-<<<<<<< HEAD
 url1 = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b423c011&query=fetch:ip"
 # homepage
 @app.route("/", methods=["GET"])
@@ -49,7 +48,6 @@ def predict():
     from flask import jsonify, request
 
     lat = str(request.args.get('lat'))
-=======
 url = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b423c011&query=fetch:ip"
 # homepage
 @app.route("/home", methods=["GET"])
@@ -59,7 +57,6 @@ def homepage():
     # temp = flask.request.form['lat']
     # press = flask.request.form['lng'] 
     
->>>>>>> 42836fe21dc8ae3adde4d67c1232bf33b5002be1
     
     lng = str(request.args.get('lng'))
 
@@ -81,7 +78,6 @@ def homepage():
 
     newprd = str(''.join(map(str, prd)))[1:-1]
 
-<<<<<<< HEAD
 
     return jsonify(latlng,newprd,response)
 
@@ -103,9 +99,7 @@ def rainfreq():
 def timeseries():
     return flask.render_template('time-series.html')
 
-=======
     return flask.render_template('index.html', prediction_text=f'Likelihood of a power outage at your location(Based on IP): {newprd}')    
->>>>>>> 42836fe21dc8ae3adde4d67c1232bf33b5002be1
 
 # start the flask app, allow remote connections 
 if __name__ == "__main__":
