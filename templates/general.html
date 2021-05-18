@@ -1,0 +1,24 @@
+
+{% extends "home.html" %}
+
+{% block title %} User Profile {% endblock %} 
+
+<!-- Plugins CSS goes HERE  -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div id="container" style="width:1200px; height: 500px;">
+  	<h4>Frequency of outages affected by wind</h4>
+   {% include 'outages_general.html' %}
+
+ </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}
