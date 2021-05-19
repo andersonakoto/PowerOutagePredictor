@@ -48,15 +48,6 @@ def predict():
     from flask import jsonify, request
 
     lat = str(request.args.get('lat'))
-url = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b423c011&query=fetch:ip"
-# homepage
-@app.route("/home", methods=["GET"])
-def homepage():
-# @app.route("/predict", methods=["GET"])
-# def predict():
-    # temp = flask.request.form['lat']
-    # press = flask.request.form['lng'] 
-    
     
     lng = str(request.args.get('lng'))
 
@@ -79,13 +70,8 @@ def homepage():
     newprd = str(''.join(map(str, prd)))[1:-1]
 
 
-    return jsonify(latlng,newprd,response)
+    return jsonify(newprd)
 
-
-# @app.route("/home2", methods=["GET"])
-# def home2():
-
-#     return flask.render_template('home.html')    
 
 @app.route('/wind-freq.html', methods=["GET"])
 def windfreq():
@@ -99,8 +85,10 @@ def rainfreq():
 def timeseries():
     return flask.render_template('time-series.html')
 
-    return flask.render_template('index.html', prediction_text=f'Likelihood of a power outage at your location(Based on IP): {newprd}')    
+@app.route('/outages_wind.html', methods=["GET"])
+def wind():
+    return flask.render_template('outages_wind.html')
 
 # start the flask app, allow remote connections 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='192.168.100.95', port=8000, debug=True)
