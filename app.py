@@ -26,21 +26,23 @@ url1 = "http://api.weatherstack.com/current?access_key=26cfb70e26188eb94cc13769b
 @app.route("/", methods=["GET"])
 def homepage():
 
-    response = requests.get(url1).json()
-    temp = response["current"]["temperature"]
-    wind_speed = response["current"]["wind_speed"]  
-    precip = response["current"]["precip"]
-    pressure = response["current"]["pressure"]
-    humidity = response["current"]["humidity"]
+    # response = requests.get(url1).json()
+    # temp = response["current"]["temperature"]
+    # wind_speed = response["current"]["wind_speed"]  
+    # precip = response["current"]["precip"]
+    # pressure = response["current"]["pressure"]
+    # humidity = response["current"]["humidity"]
 
 
-    a= np.array([[temp,precip,wind_speed,pressure,humidity]])
+    # a= np.array([[temp,precip,wind_speed,pressure,humidity]])
 
-    prd = model.predict(a)
+    # prd = model.predict(a)
 
-    newprd = str(''.join(map(str, prd)))[1:-1]
+    # newprd = str(''.join(map(str, prd)))[1:-1]
 
-    return flask.render_template('general.html', prediction_text=f'Likelihood of a power outage at your location(Based on IP): {newprd}')    
+    # return flask.render_template('general.html', prediction_text=f'Likelihood of a power outage at your location(Based on IP): {newprd}')    
+    
+    return flask.render_template('general.html')    
 
 @app.route("/predict", methods=["GET"])
 def predict():
@@ -85,10 +87,10 @@ def rainfreq():
 def timeseries():
     return flask.render_template('time-series.html')
 
-@app.route('/outages_wind.html', methods=["GET"])
-def wind():
-    return flask.render_template('outages_wind.html')
+@app.route('/likelihood-pred.html', methods=["GET"])
+def likelihoods():
+    return flask.render_template('likelihood-pred.html')    
 
 # start the flask app, allow remote connections 
 if __name__ == "__main__":
-    app.run(host='192.168.100.95', port=8000, debug=True)
+    app.run(host='localhost', port=8000, debug=True)
