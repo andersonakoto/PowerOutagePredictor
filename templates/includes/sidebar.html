@@ -4,15 +4,19 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><span class="hide-menu">General Outage<br>Frequency</span></a>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('general') }}" aria-expanded="false"><span class="hide-menu">General Outage<br>Frequency</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="/wind-freq.html" aria-expanded="false"><span class="hide-menu">Outages Caused by<br>Wind Frequency</span></a>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('windfreq') }}" aria-expanded="false"><span class="hide-menu">Outages Caused by<br>Wind Frequency</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="/rain-freq.html" aria-expanded="false"><span class="hide-menu">Outages Caused By<br>Precipitation Frequency</span></a>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('rainfreq') }}" aria-expanded="false"><span class="hide-menu">Outages Caused By<br>Precipitation Frequency</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="/time-series.html" aria-expanded="false"><span class="hide-menu">Time Series for Outages</span></a>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('timeseries') }}" aria-expanded="false"><span class="hide-menu">Time Series for Outages</span></a>
                 </li>
-                <li> <a class="waves-effect waves-dark" href="/likelihood-pred.html" aria-expanded="false"><span class="hide-menu">Outage Likelihoods</span></a>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('likelihoods') }}" aria-expanded="false"><span class="hide-menu">Outage Likelihoods</span></a>
+                </li>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('profile') }}" aria-expanded="false"><span class="hide-menu">User Profile</span></a>
+                </li>
+                <li> <a class="waves-effect waves-dark" href="{{ url_for('logout') }}" aria-expanded="false"><span class="hide-menu">Logout</span></a>
                 </li>
             </ul>
 

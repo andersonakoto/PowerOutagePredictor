@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Give Passcode - Power Outage Predictor</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/style2.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<div class="login">
+			<h1>Login</h1>
+			<form action="/putcode" method="post">
+				<label for="phone2numeric">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="passcode" placeholder="Passcode" required>
+				<div class="msg">{{ msg }}</div>
+				<input type="submit" value="Login" name="login">
+			</form>
+		</div>
+	</body>
+</html>

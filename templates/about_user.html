@@ -1,0 +1,20 @@
+{% block content %}
+<h2>Current User Profile</h2>
+<div>
+    <p>Your user details are as below:</p>
+    <table>
+        <tr>
+            <td>Phone Number:</td>
+            <td>{{ session.get('phonenumber', None) }}</td>
+        </tr>
+        <tr>
+            <td>Last login time:</td>
+            <td>{{session.get('logintime', None) }}</td>
+        </tr>
+        <tr>
+            <td>User ID:</td>
+            <td>{{ session.get('id', None) }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login - Power Outage Predictor</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='/assets/css/style2.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<div class="login">
+			<h1>Login</h1>
+			<form action="/usrlogin" method="post">
+				<label for="phone2numeric">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="phonenumber" placeholder="Phone Number" required>
+				<div class="msg">{{ msg }}</div>
+				<input type="submit" value="Get code" name="getcode">
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "home.html" %}
+
+<!-- Plugins CSS goes HERE  -->
+{% block plugin_stylesheets %}{% endblock plugin_stylesheets %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Current Logged in user</h4>
+                        <div id="simple" class="gmaps" style="height:500px">
+                         {% include 'about_user.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+{% endblock javascripts %}
